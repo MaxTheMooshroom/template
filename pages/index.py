@@ -5,11 +5,14 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.express as px
+import MyFuncs as mf
+
+# of note: dcc.Markdown("<Markdown>")
 
 # Imports from this application
 from app import app
 
-# 2 column layout. 1st column width = 4/12
+# 2 column layout. 1st column width = 3/12
 # https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
 column1 = dbc.Col(
     [
@@ -28,12 +31,11 @@ column1 = dbc.Col(
         ),
         dcc.Link(dbc.Button('Your Call To Action', color='primary'), href='/predictions')
     ],
-    md=4,
+    md=3,
 )
 
-gapminder = px.data.gapminder()
-fig = px.scatter(gapminder.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop", color="continent",
-           hover_name="country", log_x=True, size_max=60)
+ncvs = mf.ncvs_small()
+fig = px.scatter(ncvs, x="YEAR", y="V2026", size="pop", size_max=60)
 
 column2 = dbc.Col(
     [

@@ -19,7 +19,7 @@ navbar = dbc.NavbarSimple(
     brand='National Crime Victimization Survey, 1992-2016',
     brand_href='/', 
     children=[
-		html.Img(src='https://picsum.photos/200', height='30px'),
+		html.Img(src='https://picsum.photos/200', alt='Random Image', height='30px'),
         dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link', style={'color': mf.colors['navbar-text-col']})), 
         dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link', style={'color': mf.colors['navbar-text-col']})), 
         dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link', style={'color': mf.colors['navbar-text-col']}))
@@ -40,15 +40,14 @@ footer = dbc.Container(
             html.P(
                 [
                     html.Span('Your Name', className='mr-2'), 
-                    html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:<you>@<provider>.com'), 
-                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/<you>/<repo>'), 
-                    html.A(html.I(className='fab fa-linkedin mr-1'), href='https://www.linkedin.com/in/<you>/'), 
-                    html.A(html.I(className='fab fa-twitter-square mr-1'), href='https://twitter.com/<you>'), 
+                    html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:max.alexander3721@gmail.com'), 
+                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/MaxTheMooshroom/Build-2')
                 ], 
                 className='lead'
             )
         )
-    )
+    ),
+	color=mf.colors['navbar-col']
 )
 
 # Layout docs:
