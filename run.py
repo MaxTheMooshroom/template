@@ -12,7 +12,7 @@ import plotly.graph_objs as go
 # Imports from this application
 from app import app, server
 from pages import index, predictions, insights, process
-#import MyFuncs as mf
+import MyFuncs as mf
 
 # Navbar docs: https://dash-bootstrap-components.opensource.faculty.ai/l/components/navbar
 navbar = dbc.NavbarSimple(
@@ -24,9 +24,9 @@ navbar = dbc.NavbarSimple(
         dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')), 
     ],
     sticky='top',
-    color='light', #mf.colors['navbar-col'] 
-    light=True, 
-    dark=False
+    color=mf.colors['navbar-col'] 
+    #light=True, 
+    #dark=False
 )
 
 # Footer docs:
