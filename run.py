@@ -19,13 +19,13 @@ navbar = dbc.NavbarSimple(
     brand='National Crime Victimization Survey, 1992-2016',
     brand_href='/', 
     children=[
+		html.Img(src='https://picsum.photos/200', height='30px'),
         dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link', style={'color': mf.colors['navbar-text-col']})), 
         dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link', style={'color': mf.colors['navbar-text-col']})), 
-        dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link', style={'color': mf.colors['navbar-text-col']})), 
+        dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link', style={'color': mf.colors['navbar-text-col']}))
     ],
     sticky='top',
-    color=mf.colors['navbar-col'],
-	style={'color': mf.colors['navbar-text-col']}
+    color=mf.colors['navbar-col']
 )
 
 # Footer docs:
