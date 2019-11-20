@@ -79,7 +79,7 @@ def ncvs(n_samples=None, output=False):
 	return import_data('files/ncvs.tsv', delimiter='\t', encoding='utf-8', n_samples=n_samples, output=output)
 
 def ncvs_small(n_samples=None, output=False):
-	return import_data('/files/ncvs_small.csv', n_samples=n_samples, output=output)
+	return import_data('files/ncvs_small.csv', n_samples=n_samples, output=output)
 
 colors = {	# taken directly from my site
 			'text': '#404040',
