@@ -46,8 +46,7 @@ footer = dbc.Container(
                 className='lead'
             )
         )
-    ),
-	color=mf.colors['navbar-col']
+    )
 )
 
 # Layout docs:
