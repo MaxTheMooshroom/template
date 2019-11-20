@@ -4,14 +4,34 @@ import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
+import pandas as pd
+import numpy as np
+import folium
+import plotly.express as px
+import category_encoders as ce
+import graphviz
+import time, datetime
+from scipy.stats import uniform, randint
+from sklearn.tree import export_graphviz
+from sklearn.metrics import mean_absolute_error
+from sklearn.impute import SimpleImputer
+from sklearn.linear_model import LogisticRegression, Ridge
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV, RandomizedSearchCV
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+from sklearn.feature_selection import f_regression, SelectKBest
+import plotly.graph_objs as go
 
 # Imports from this application
 from app import app, server
 from pages import index, predictions, insights, process
+import MyFuncs as mf
 
 # Navbar docs: https://dash-bootstrap-components.opensource.faculty.ai/l/components/navbar
 navbar = dbc.NavbarSimple(
-    brand='YOUR APP NAME',
+    brand='National Crime Victimization Survey, 1992-2016',
     brand_href='/', 
     children=[
         dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), 
@@ -19,9 +39,9 @@ navbar = dbc.NavbarSimple(
         dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')), 
     ],
     sticky='top',
-    color='light', 
-    light=True, 
-    dark=False
+    color=mf.colors['navbar-col']#, 
+    #light=True, 
+    #dark=False
 )
 
 # Footer docs:
