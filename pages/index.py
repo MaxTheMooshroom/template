@@ -34,6 +34,8 @@ column1 = dbc.Col(
     md=3,
 )
 
+ncvs = mf.ncvs_small()
+
 gapminder = px.data.gapminder()
 fig = px.scatter(gapminder.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop", color="continent",
            hover_name="country", log_x=True, size_max=60)
