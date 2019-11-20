@@ -107,4 +107,4 @@ def change_attributes(dicIn, dic_new):
 	return dicIn
 
 def ncvs_small_model():
-	return pickle.load(open('model.sav', 'rb'))
+	return pickle.load(open('assets/model.sav', 'rb'))
