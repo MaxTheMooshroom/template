@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import plotly.graph_objs as go
+import pickle
 
 def sample_data(df, n_samples=None, output=False):
 	if n_samples is None:
@@ -104,10 +105,10 @@ def default_layout():
 			}
 	}
 
-def change_attributes(dicIn, dicOut):
-	for key in dicOut.keys():
-		dicIn[key] = dicOut[key]
+def change_attributes(dicIn, dic_new):
+	for key in dic_new.keys():
+		dicIn[key] = dic_new[key]
 	return dicIn
 
 def ncvs_small_model():
-	return pickle.load(open('./files/model.sav', 'rb'))
+	return pickle.load(open('model.sav', 'rb'))
