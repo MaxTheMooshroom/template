@@ -27,7 +27,7 @@ import plotly.graph_objs as go
 # Imports from this application
 from app import app, server
 from pages import index, predictions, insights, process
-import MyFuncs as mf
+#import MyFuncs as mf
 
 # Navbar docs: https://dash-bootstrap-components.opensource.faculty.ai/l/components/navbar
 navbar = dbc.NavbarSimple(
