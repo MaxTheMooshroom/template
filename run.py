@@ -7,20 +7,6 @@ from dash.dependencies import Input, Output
 import pandas as pd
 import numpy as np
 import plotly.express as px
-import category_encoders as ce
-import graphviz
-import time, datetime
-from scipy.stats import uniform, randint
-from sklearn.tree import export_graphviz
-from sklearn.metrics import mean_absolute_error
-from sklearn.impute import SimpleImputer
-from sklearn.linear_model import LogisticRegression, Ridge
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV, RandomizedSearchCV
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
-from sklearn.feature_selection import f_regression, SelectKBest
 import plotly.graph_objs as go
 
 # Imports from this application
