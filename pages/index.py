@@ -6,6 +6,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.express as px
 import MyFuncs as mf
+import pickle
 
 # of note: dcc.Markdown("<Markdown>")
 
@@ -18,23 +19,16 @@ column1 = dbc.Col(
     [
         dcc.Markdown(
             """
-        
-            ## Your Value Proposition
-
-            Emphasize how the app will benefit users. Don't emphasize the underlying technology.
-
-            ✅ RUN is a running app that adapts to your fitness levels and designs personalized workouts to help you improve your running.
-
-            ❌ RUN is the only intelligent running app that uses sophisticated deep neural net machine learning to make your run smarter because we believe in ML driven workouts.
+				## Predictions
+				Here is where you can make predictions!
 
             """
-        ),
-        dcc.Link(dbc.Button('Your Call To Action', color='primary'), href='/predictions')
+        )
     ],
     md=3,
 )
 
-ncvs = mf.ncvs_small()
+model = mf.ncvs_small_model()
 
 gapminder = px.data.gapminder()
 fig = px.scatter(gapminder.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop", color="continent",
