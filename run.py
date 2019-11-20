@@ -19,14 +19,12 @@ navbar = dbc.NavbarSimple(
     brand='National Crime Victimization Survey, 1992-2016',
     brand_href='/', 
     children=[
-        dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), 
+        dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link', style={'color': colors['text']})), 
         dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link')), 
         dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')), 
     ],
     sticky='top',
-    color=mf.colors['navbar-col'] 
-    #light=True, 
-    #dark=False
+    color=mf.colors['navbar-col']
 )
 
 # Footer docs:
