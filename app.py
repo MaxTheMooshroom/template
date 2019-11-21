@@ -44,8 +44,9 @@ dbc.themes.YETI
 """
 
 external_stylesheets = [
-    dbc.themes.YETI, # Bootswatch theme
+    dbc.themes.YETI, # Yeti theme
     'https://use.fontawesome.com/releases/v5.9.0/css/all.css', # for social media icons
+	'https://fonts.googleapis.com/css?family=Open+Sans&display=swap',
 ]
 
 meta_tags=[
