@@ -78,23 +78,33 @@ def import_data(file, dtypes=None, delimiter = None, encoding=None, output=False
 
 	return reduce_mem_usage(df, output=output, n_samples=n_samples, **kwargs)
 
+cols_to_keep = ['YEAR', 'V2015', 'V2021', 'V2022', 'V2024', 'V2078', 
+        'V2119', 'V2120', 'V2122', 'V2126B', 'V2127B', 'V2129', 
+        'V2130', 'V3006', 'V3013', 'V3015', 'V3017', 'V3019', 'V3020', 
+        'V3021', 'V3024', 'V3028', 'V3029', 'V3030', 'V3031', 'V3033', 'V3034', 
+        'V3035', 'V3036', 'V3037', 'V3038', 'V3039', 'V3040', 'V3041', 'V3042', 
+        'V3043', 'V3044', 'V3045', 'V3046', 'V3047', 'V3048', 'V3049', 'V3050', 
+        'V3052', 'V3053', 'V3054', 'V3055', 'V3056', 'V3058', 
+        'V3059', 'V3_V4526H3A', 'V3_V4526H3B', 'V3_V4526H5', 'V3_V4526H4', 
+        'V3_V4526H6', 'V3_V4526H7', 'V3071', 'V3072', 'V3073', 'V3074', 'V3075', 
+        'V3076', 'V3077', 'V3078', 'V3079', 'V3081', 
+        'VFLAG', 'VTYPE', 'RECENTLY_MARRIED', 'RECENTLY_SINGLE', 'V2026']
+
 def ncvs_small(n_samples=None, output=False, wrangle=False):
 
-	cols_to_keep = ['YEAR', 'V3020', 'V2026', 'V3013', 'V2122']
+    df = import_data('assets/files/ncvs_small.csv', n_samples=n_samples, output=output)
 
-	df = import_data('assets/files/ncvs_small.csv', n_samples=n_samples, output=output)
+    if wrangle is True:
+        for col in df.columns:
+            for k in dataDictionary[col]['Null']:
+                df[col] = df[col].where(df[col] != k, None)
 
-	if wrangle is True:
-		for col in df.columns:
-			for k in dataDictionary[col]['Null']:
-				df[col] = df[col].where(df[col] != k, None)
+        df['RECENTLY_MARRIED'] = ((df['V3015'] == 1) & (df['V3016'] != 1) & (df['V3016'] != None))
+        df['RECENTLY_SINGLE'] = ((df['V3015'] != 1) & (df['V3015'] != None) & (df['V3016'] == 1))
 
-		df['RECENTLY_MARRIED'] = ((df['V3015'] == 1) & (df['V3016'] != 1) & (df['V3016'] != None))
-		df['RECENTLY_SINGLE'] = ((df['V3015'] != 1) & (df['V3015'] != None) & (df['V3016'] == 1))
-
-	df = df[cols_to_keep]
-	
-	return df
+    df = df[cols_to_keep]
+    
+    return df
 
 dataDictionary = {"YEAR": 
                           {"Desc": "YEAR",
@@ -644,3 +654,22 @@ def change_attributes(dicIn, dic_new):
 
 def ncvs_small_model():
 	return pickle.load(open('assets/model.sav', 'rb'))
+
+def rprint(var):
+    print(var)
+    return var
+
+def attempt(func, var):
+    try:
+        return func(var)
+    except:
+        print(f"failed to run: {func}({var})\n")
+        return 0
+
+
+
+
+
+
+
+

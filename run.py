@@ -25,7 +25,9 @@ navbar = dbc.NavbarSimple(
         #dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link', style={'color': mf.colors['navbar-text-col']}))
     ],
     sticky='top',
-    color=mf.colors['navbar-col']
+    color=mf.colors['text'],
+    light=False, 
+    dark=True
 )
 
 # Footer docs:
