@@ -15,19 +15,22 @@ from pages import index, predictions, insights, process
 import MyFuncs as mf
 
 # Navbar docs: https://dash-bootstrap-components.opensource.faculty.ai/l/components/navbar
-navbar = dbc.NavbarSimple(
-    brand='National Crime Victimization Survey, 1992-2016',
-    brand_href='/', 
-    children=[
-		#html.Img(src='https://picsum.photos/200', alt='Random Image', height='30px'),
-        #dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link', style={'color': mf.colors['navbar-text-col']})), 
-        #dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link', style={'color': mf.colors['navbar-text-col']})), 
-        #dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link', style={'color': mf.colors['navbar-text-col']}))
-    ],
+navbar = dbc.Navbar(
+    dbc.Container(
+        [
+            dbc.NavbarBrand(
+                [
+                    html.Span("National Crime Victimization Survey, 1992-2016", 
+                              style={
+                                  "color": mf.colors['navbar-text-col'],
+                                  "font-family": "Open-Sans"
+                                  })
+                ]
+            )
+        ]
+    ),
     sticky='top',
-    color=mf.colors['text'],
-    light=False, 
-    dark=True
+    color=mf.colors['navbar-col']
 )
 
 # Footer docs:
@@ -36,20 +39,21 @@ navbar = dbc.NavbarSimple(
 # fa (font awesome) : https://fontawesome.com/icons/github-square?style=brands
 # mr (margin right) : https://getbootstrap.com/docs/4.3/utilities/spacing/
 # className='lead' : https://getbootstrap.com/docs/4.3/content/typography/#lead
-footer = dbc.Container(
+footer = dbc.Navbar(
     dbc.Row(
         dbc.Col(
             html.P(
                 [
-                    html.Span('Maxie Lawrence', className='mr-2'),# color=mf.colors['footer-text-col']), 
+                html.Span('Maxie Lawrence', className=' mr-2'),# color=mf.colors['footer-text-col']), 
                     html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:max.alexander3721@gmail.com'), 
-                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/MaxTheMooshroom/Build-2')
+                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/MaxTheMooshroom/unit-2-build')
                 ], 
                 className='lead'
             )
-        )
-		#color=mf.colors['footer-col']
-    )
+        ),
+        style={'backgroundColor':mf.colors['navbar-col'], 'color':mf.colors['footer-text-col'], 'font-family': 'Open-Sans'}
+    ),
+    sticky='bottom'
 )
 
 # Layout docs:
@@ -60,7 +64,7 @@ app.layout = html.Div([
     dcc.Location(id='url', refresh=False), 
     navbar, 
     dbc.Container(id='page-content', className='mt-4'), 
-    html.Hr(), 
+    html.Hr(style={'backgroundColor':mf.colors['navbar-col'], 'color':mf.colors['footer-text-col'], 'font-family': 'Open-Sans'}), 
     footer
 ])
 
