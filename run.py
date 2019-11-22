@@ -69,16 +69,17 @@ app.layout = html.Div([
 @app.callback(Output('page-content', 'children'),
               [Input('url', 'pathname')])
 def display_page(pathname):
-    if pathname == '/':
-        return index.layout
-    elif pathname == '/predictions':
-        return predictions.layout
-    elif pathname == '/insights':
-        return insights.layout
-    elif pathname == '/process':
-        return process.layout
-    else:
-        return dcc.Markdown('## Page not found')
+#    if pathname == '/':
+#        return index.layout
+#    elif pathname == '/predictions':
+#        return predictions.layout
+#    elif pathname == '/insights':
+#        return insights.layout
+#    elif pathname == '/process':
+#        return process.layout
+#    else:
+#        return dcc.Markdown('## Page not found')
+    return index.layout
 
 # Run app server: https://dash.plot.ly/getting-started
 if __name__ == '__main__':
